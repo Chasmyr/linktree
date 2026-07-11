@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+  <style>
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.55; }
+      50% { opacity: 0.85; }
+    }
+    body {
+      margin: 0;
+      background: #060a14;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: rgba(150,220,255,0.35); }
+  </style>
+</helmet>
+
+<div style="min-height:100vh; width:100%; position:relative; display:flex; justify-content:center; background:#04060d;">
+
+    <div style="position:fixed; inset:0; z-index:0; overflow:hidden;">
+<img src="uploads/1000005570.jpg" alt="" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.42) saturate(0.85) blur(6px); transform:scale(1.08);">
+      <div style="position:absolute; inset:0; background:linear-gradient(160deg, rgba(4,6,13,0.5) 0%, rgba(4,6,13,0.7) 45%, rgba(2,4,10,0.88) 100%);"></div>
+      <div style="position:absolute; inset:0; background:linear-gradient(0deg, #04060d 0%, transparent 14%, transparent 86%, #04060d 100%);"></div>
+      <div style="position:absolute; inset:0; background:radial-gradient(ellipse 80% 50% at 88% 10%, rgba(60,220,200,0.12), transparent 60%);"></div>
+    </div>
+
+  <div style="width:100%; max-width:480px; min-height:100vh; padding:56px 24px 48px; box-sizing:border-box; display:flex; flex-direction:column; align-items:center; font-family:'Manrope', sans-serif; color:#eef1f8; position:relative; z-index:1;">
+
+    <h1 style="font-family:'Bricolage Grotesque', sans-serif; font-weight:400; font-size:44px; letter-spacing:1px; margin:64px 0 8px; color:#ffffff; text-shadow: 0 0 30px rgba(140,220,230,0.35); white-space:nowrap;">etwahl <span style="font-size:0.55em; vertical-align:middle;">✨</span></h1>
+    <p style="margin:0 0 44px; max-width:280px; text-align:center; font-family:'Bricolage Grotesque'; font-size:clamp(12px, 3.2vw, 14px); letter-spacing:0.4px; line-height:1.5; text-wrap:balance; color:#e6c9ee; font-weight:400;">DJ / productrice — hyperpop · dubstep · baile funk</p>
+
+    <!-- ACTU -->
+    <section data-screen-label="ACTU" style="width:100%; margin-bottom:38px; text-align:center;">
+      <sc-if value="{{ actuHasDate }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:16px;">
+          <p style="margin:0; font-size:12px; color:#9fb4c9; letter-spacing:2px; text-transform:uppercase; font-weight:500;">{{ actu.eyebrow }}</p>
+          <div style="display:flex; align-items:baseline; gap:10px;">
+            <span style="font-family:'Oswald', sans-serif; font-weight:700; font-size:52px; line-height:1; color:#ffffff; text-shadow: 0 0 26px rgba(140,220,230,0.4);">{{ actu.dateDay }}</span>
+            <span style="font-family:'Oswald', sans-serif; font-weight:600; font-size:20px; letter-spacing:1px; text-transform:uppercase; color:#cfe4ec;">{{ actu.dateMonth }}</span>
+          </div>
+          <p style="margin:0; font-size:15px; color:#c7cfe2;">{{ actu.location }}</p>
+          <a href="{{ actu.url }}" target="_blank" rel="noopener" style="position:relative; display:flex; align-items:center; width:100%; box-sizing:border-box; margin-top:6px; padding:7px 26px 7px 7px; background:linear-gradient(180deg, rgba(235,210,255,0.65) 0%, rgba(200,160,240,0.55) 45%, rgba(150,110,200,0.5) 100%); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border:1px solid rgba(220,180,255,0.6); border-radius:999px; color:#0a1420; text-decoration:none; box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), inset 0 0 18px rgba(180,130,255,0.2), inset 0 -10px 16px rgba(140,205,210,0.4), 0 8px 22px rgba(80,40,120,0.3); transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.15s ease;" style-hover="box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), inset 0 0 24px rgba(190,140,255,0.3), inset 0 -10px 16px rgba(140,205,210,0.5), 0 0 22px rgba(190,140,255,0.35), 0 10px 26px rgba(80,40,120,0.35); border-color: rgba(220,180,255,0.75); transform: translateY(-1px);">
+            <span style="flex-shrink:0; width:46px; height:46px; border-radius:50%; background:radial-gradient(circle at 32% 28%, #ffffff, #d9c3ff 75%); box-shadow: inset 0 -3px 6px rgba(150,110,200,0.5), inset 0 2px 3px rgba(255,255,255,0.9), 0 0 10px rgba(190,140,255,0.35); display:flex; align-items:center; justify-content:center; font-size:17px; color:#0a2a30; margin-right:14px;">▶</span>
+            <span style="flex:1; text-align:center; padding-right:46px; font-family:'Oswald', sans-serif; font-weight:600; font-size:16px; letter-spacing:0.5px; text-transform:uppercase;">{{ actu.ticketLabel }}</span>
+          </a>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notActuHasDate }}" hint-placeholder-val="{{ true }}">
+        <p style="margin:0 0 14px; font-size:14px; color:#f1f4ff; letter-spacing:0.3px; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">{{ actu.label }}</p>
+        <a href="{{ actu.url }}" target="_blank" rel="noopener" style="position:relative; display:flex; align-items:center; width:100%; box-sizing:border-box; padding:7px 26px 7px 7px; background:linear-gradient(180deg, rgba(235,210,255,0.65) 0%, rgba(200,160,240,0.55) 45%, rgba(150,110,200,0.5) 100%); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border:1px solid rgba(220,180,255,0.6); border-radius:999px; color:#0a1420; text-decoration:none; box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), inset 0 0 18px rgba(180,130,255,0.2), inset 0 -10px 16px rgba(140,205,210,0.4), 0 8px 22px rgba(80,40,120,0.3); transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.15s ease;" style-hover="box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), inset 0 0 24px rgba(190,140,255,0.3), inset 0 -10px 16px rgba(140,205,210,0.5), 0 0 22px rgba(190,140,255,0.35), 0 10px 26px rgba(80,40,120,0.35); border-color: rgba(220,180,255,0.75); transform: translateY(-1px);">
+          <span style="flex-shrink:0; width:46px; height:46px; border-radius:50%; background:radial-gradient(circle at 32% 28%, #ffffff, #d9c3ff 75%); box-shadow: inset 0 -3px 6px rgba(150,110,200,0.5), inset 0 2px 3px rgba(255,255,255,0.9), 0 0 10px rgba(190,140,255,0.35); display:flex; align-items:center; justify-content:center; font-size:17px; color:#0a2a30; margin-right:14px;">▶</span>
+          <span style="flex:1; text-align:center; padding-right:46px; font-family:'Oswald', sans-serif; font-weight:600; font-size:16px; letter-spacing:0.5px; text-transform:uppercase;">{{ actu.title }}</span>
+        </a>
+      </sc-if>
+    </section>
+
+    <!-- STREAMING -->
+    <section data-screen-label="STREAMING" style="width:100%; margin-bottom:38px;">
+      <h2 style="font-family:'Oswald', sans-serif; font-size:12px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:#9aa4c2; margin:0 0 14px; text-align:center;">Écouter</h2>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <sc-for list="{{ streamingLinks }}" as="link" hint-placeholder-count="2">
+          <a href="{{ link.url }}" target="_blank" rel="noopener" style="position:relative; display:flex; align-items:center; width:100%; box-sizing:border-box; padding:7px 22px 7px 7px; background:linear-gradient(180deg, rgba(60,50,90,0.55) 0%, rgba(30,25,55,0.6) 45%, rgba(10,10,25,0.65) 100%); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border:1px solid rgba(185,140,255,0.4); border-radius:999px; color:#f3eefc; text-decoration:none; box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), inset 0 0 20px rgba(150,100,255,0.18), inset 0 -10px 20px rgba(0,0,0,0.4), 0 6px 16px rgba(0,0,0,0.45); transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.15s ease;" style-hover="box-shadow: inset 0 1px 0 rgba(255,255,255,0.24), inset 0 0 26px rgba(170,120,255,0.3), inset 0 -10px 20px rgba(0,0,0,0.45), 0 0 22px rgba(150,100,255,0.35), 0 6px 16px rgba(0,0,0,0.5); border-color: rgba(210,170,255,0.65); transform: translateY(-1px);">
+            <span style="flex-shrink:0; width:44px; height:44px; border-radius:50%; background:radial-gradient(circle at 32% 28%, #d3b8ff, #3a1f5c 75%); box-shadow: inset 0 -3px 6px rgba(0,0,0,0.5), inset 0 2px 3px rgba(255,255,255,0.4), 0 0 10px rgba(180,130,255,0.4); display:flex; align-items:center; justify-content:center; font-family:'Oswald', sans-serif; font-weight:600; font-size:15px; color:#06181f; margin-right:14px;">{{ link.icon }}</span>
+            <span style="flex:1; text-align:center; padding-right:44px; font-size:15px; font-weight:500;">{{ link.name }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section data-screen-label="CONTACT" style="width:100%; margin-bottom:38px;">
+      <h2 style="font-family:'Oswald', sans-serif; font-size:12px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:#9aa4c2; margin:0 0 14px; text-align:center;">Contact</h2>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <a href="{{ instagramUrl }}" target="_blank" rel="noopener" style="position:relative; display:flex; align-items:center; width:100%; box-sizing:border-box; padding:7px 22px 7px 7px; background:linear-gradient(180deg, rgba(60,50,90,0.55) 0%, rgba(30,25,55,0.6) 45%, rgba(10,10,25,0.65) 100%); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border:1px solid rgba(185,140,255,0.4); border-radius:999px; color:#f3eefc; text-decoration:none; box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), inset 0 0 20px rgba(150,100,255,0.18), inset 0 -10px 20px rgba(0,0,0,0.4), 0 6px 16px rgba(0,0,0,0.45); transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.15s ease;" style-hover="box-shadow: inset 0 1px 0 rgba(255,255,255,0.24), inset 0 0 26px rgba(170,120,255,0.3), inset 0 -10px 20px rgba(0,0,0,0.45), 0 0 22px rgba(150,100,255,0.35), 0 6px 16px rgba(0,0,0,0.5); border-color: rgba(210,170,255,0.65); transform: translateY(-1px);">
+          <span style="flex-shrink:0; width:44px; height:44px; border-radius:50%; background:radial-gradient(circle at 32% 28%, #d3b8ff, #3a1f5c 75%); box-shadow: inset 0 -3px 6px rgba(0,0,0,0.5), inset 0 2px 3px rgba(255,255,255,0.4), 0 0 10px rgba(180,130,255,0.4); display:flex; align-items:center; justify-content:center; font-family:'Oswald', sans-serif; font-weight:600; font-size:14px; color:#06181f; margin-right:14px;">IG</span>
+          <span style="flex:1; text-align:center; padding-right:44px; font-size:15px; font-weight:500;">@etwahl.az</span>
+        </a>
+        <a href="{{ mailtoHref }}" style="position:relative; display:flex; align-items:center; width:100%; box-sizing:border-box; padding:7px 22px 7px 7px; background:linear-gradient(180deg, rgba(60,50,90,0.55) 0%, rgba(30,25,55,0.6) 45%, rgba(10,10,25,0.65) 100%); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border:1px solid rgba(185,140,255,0.4); border-radius:999px; color:#f3eefc; text-decoration:none; box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), inset 0 0 20px rgba(150,100,255,0.18), inset 0 -10px 20px rgba(0,0,0,0.4), 0 6px 16px rgba(0,0,0,0.45); transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.15s ease;" style-hover="box-shadow: inset 0 1px 0 rgba(255,255,255,0.24), inset 0 0 26px rgba(170,120,255,0.3), inset 0 -10px 20px rgba(0,0,0,0.45), 0 0 22px rgba(150,100,255,0.35), 0 6px 16px rgba(0,0,0,0.5); border-color: rgba(210,170,255,0.65); transform: translateY(-1px);">
+          <span style="flex-shrink:0; width:44px; height:44px; border-radius:50%; background:radial-gradient(circle at 32% 28%, #d3b8ff, #3a1f5c 75%); box-shadow: inset 0 -3px 6px rgba(0,0,0,0.5), inset 0 2px 3px rgba(255,255,255,0.4), 0 0 10px rgba(180,130,255,0.4); display:flex; align-items:center; justify-content:center; font-family:'Oswald', sans-serif; font-weight:600; font-size:16px; color:#06181f; margin-right:14px;">✉</span>
+          <span style="flex:1; text-align:center; padding-right:44px; font-size:15px; font-weight:500;">{{ contactEmail }}</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- CREDIT -->
+    <section data-screen-label="CREDIT" style="width:100%; margin-top:auto; padding-top:20px;">
+      <p style="text-align:center; font-size:12px; color:#5a6280; letter-spacing:0.3px; line-height:1.8; margin:0;">
+        <sc-for list="{{ credits }}" as="credit" hint-placeholder-count="1">
+          {{ credit.role }} : <a href="{{ credit.url }}" target="_blank" rel="noopener" style="color:#8fb8cc; text-decoration:none;" style-hover="text-decoration: underline;">{{ credit.name }}</a><br>
+        </sc-for>
+      </p>
+    </section>
+
+  </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;actuHasDate&quot;: {
+    &quot;editor&quot;: &quot;boolean&quot;,
+    &quot;default&quot;: false,
+    &quot;tsType&quot;: &quot;boolean&quot;,
+    &quot;section&quot;: &quot;Aperçu&quot;,
+    &quot;label&quot;: &quot;Prévisualiser : date annoncée&quot;
+  }
+}">
+class Component extends DCLogic {
+  // ── ACTU : à modifier à chaque nouvelle sortie ──
+  actu = {
+    label: "🔜 Premier son bientôt — reste connecté·e",
+    title: "Voir / écouter",
+    url: "https://soundcloud.com/etwahl",
+    // ── champs utilisés quand une date est annoncée (activer via Tweaks > "Prévisualiser : date annoncée") ──
+    eyebrow: "Prochain set",
+    dateDay: "14",
+    dateMonth: "sept.",
+    location: "Rennes",
+    ticketLabel: "Billetterie / infos"
+  };
+
+  // ── STREAMING : ajouter une entrée ici pour Spotify/Apple Music/TikTok etc ──
+  streamingLinks = [
+    { name: "SoundCloud", icon: "S", url: "https://soundcloud.com/etwahl" },
+    { name: "Bandcamp", icon: "B", url: "https://etwahl.bandcamp.com" }
+  ];
+
+  // ── CONTACT ──
+  instagramUrl = "https://instagram.com/etwahl.az";
+  contactEmail = "etwahl.contact@gmail.com";
+
+  // ── CREDITS : ajouter d'autres collaborateurs ici, même format ──
+  credits = [
+    { role: "Visuel / DA", name: "Elise", url: "https://instagram.com/elise" }
+  ];
+
+  renderVals() {
+    return {
+      actu: this.actu,
+      actuHasDate: this.props.actuHasDate ?? false,
+      notActuHasDate: !(this.props.actuHasDate ?? false),
+      streamingLinks: this.streamingLinks,
+      instagramUrl: this.instagramUrl,
+      contactEmail: this.contactEmail,
+      mailtoHref: "mailto:" + this.contactEmail,
+      credits: this.credits
+    };
+  }
+}
+
+</script>
+</body>
+</html>
