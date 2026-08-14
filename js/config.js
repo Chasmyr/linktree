@@ -6,7 +6,7 @@
 export const profile = {
   name: "etwahl",
   emoji: "",
-  tagline: "DJ / productrice — hyperpop · dubstep · edm",
+  tagline: "DJ / productrice — hyperpop · dubstep · edm · techno",
   backgroundImage: "uploads/1000005570.jpg",
 };
 
@@ -15,7 +15,7 @@ export const profile = {
 const actu = {
   hasDate: false,
   noDate: {
-    label: "🔜 Premier son bientôt — reste connecté·e",
+    label: "🔜 Premier set bientôt",
     title: "Voir / écouter",
     url: "https://soundcloud.com/etwahl-az",
   },
@@ -32,7 +32,11 @@ const actu = {
 // ── STREAMING : ajoute/enlève une entrée pour Spotify, Apple Music, TikTok, etc ──
 const streamingLinks = [
   { name: "SoundCloud", icon: "S", url: "https://soundcloud.com/etwahl-az" },
-  { name: "Bandcamp", icon: "B", url: "https://etwahl.bandcamp.com/" },
+  { name: "Spotify", icon: "S", url: "https://open.spotify.com/intl-fr/artist/7gwOQ9SoqkSDHjxIWbdCDZ?si=Cf4w8_2kTCKXWJeaxlVqPg"},
+  { name: "Apple music", icon : "A", url: "https://music.apple.com/us/artist/etwahl/6800855782"},
+  { name: "Deezer", icon: "D", url: "https://www.deezer.com/en/artist/407574012"},
+  { name: "Youtube Music", icon: "Y", url: "https://music.youtube.com/channel/UCT70CoANUEZiLzpAMhGNBNA"},
+  { name: "Bandcamp", icon: "B", url: "https://etwahl.bandcamp.com/" }
 ];
 
 // ── CONTACT ──
